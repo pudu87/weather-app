@@ -11,7 +11,23 @@
 </head>
 
 <body>
-  TEST
+  <div id="container">
+    <article id="form">
+      <form onsubmit="return DisplayLocation()">
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location">
+        <input type="submit" value="Search">
+      </form>
+    </article>
+
+    <article id="weather">
+      <div id="temp">°C</div>
+      <div id="pressure">BAR</div>
+      <div id="humidity">%</div>
+      <div id="wind">NE</div>
+    </article>
+  </div>
+
   <script src="main.js"></script>
 </body>
 
