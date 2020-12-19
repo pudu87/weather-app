@@ -8,6 +8,9 @@
 
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 </head>
 
 <body>
@@ -20,11 +23,18 @@
       </form>
     </article>
 
-    <article id="weather">
-      <div id="temp">°C</div>
-      <div id="pressure">BAR</div>
-      <div id="humidity">%</div>
-      <div id="wind">NE</div>
+    <article id="data">
+      <div class="temp">
+        <span></span><i class="fas fa-exchange-alt"></i>
+      </div>
+      <div class="wind"></div>
+      <div class="weather"></div>
+      <div class="pressure">
+        <p>Pressure:</p><span></span>
+      </div>
+      <div class="humidity">
+        <p>Humidity:</p><span></span>
+      </div>
     </article>
   </div>
 
