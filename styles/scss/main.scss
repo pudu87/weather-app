@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+#container {
+  height: 400px;
+  width: 260px;
+  margin: 0 auto;
+  padding: 15px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: rgb(245, 245, 245);
+  font-family: Catamaran, sans-serif;
+}
+#form {
+  height: 25%;
+  label {
+    text-align: right;
+    display: block;
+  }
+  input[type="text"] {
+    width: 100%;
+    margin-bottom: 1em;
+    padding: .2em;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 5px;
+    background-color: rgb(235, 235, 235);
+  }
+  input[type="submit"] {
+    background-color: inherit;
+    border-radius: .2em;
+    border: 1px solid #000;
+    font-family: Catamaran, sans-serif;
+    border: 1px solid rgb(200, 200, 200);
+    background-color: rgb(235, 235, 235);
+  }
+}
+#data {
+  height: 75%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-areas: 
+    "temp temp"
+    "temp temp"
+    "temp temp"
+    "wind weather"
+    "wind weather"
+    "wind weather"
+    "pressure pressure"
+    "humidity humidity";
+  gap: 5px;
+  > * {
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 5px;
+    background-color: rgb(235, 235, 235);
+  }
+}
+.temp {
+  grid-area: temp;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  span {
+    font-size: 80px;
+    font-weight: 800;
+  }
+  i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 4px;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 4px;
+    font-size: 12px;
+    color: #999;
+  }
+  i:hover {
+    cursor: pointer;
+  }
+}
+.wind {
+  grid-area: wind;
+  justify-content: center;
+  align-items: center;
+}
+.weather {
+  grid-area: weather;
+  justify-content: center;
+  align-items: center;
+}
+.pressure {
+  grid-area: pressure;
+}
+.humidity {
+  grid-area: humidity;
+}
+.pressure, 
+.humidity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  > * {
+    margin: 5px;
+  }
+  p {
+    font-size: .9em;
+  }
+  span {
+    font-weight: 800;
+  }
+}
