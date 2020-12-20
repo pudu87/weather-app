@@ -71,9 +71,34 @@ body {
     cursor: pointer; }
 
 .wind {
-  grid-area: wind;
-  justify-content: center;
-  align-items: center; }
+  grid-area: wind; }
+  .wind .direction {
+    width: 60px;
+    height: 60px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../img/compass.png");
+    background-size: cover; }
+    .wind .direction .arrow {
+      position: relative;
+      right: 5px;
+      bottom: 11px;
+      transform-origin: 6px 12px; }
+    .wind .direction span.arrow-bottom {
+      font-size: 25px;
+      color: #b41e1e; }
+    .wind .direction span.arrow-top {
+      left: 1px;
+      top: 15px;
+      font-size: 12px;
+      color: #fff; }
+    .wind .direction span {
+      position: absolute;
+      transform: scale(0.7, 1.5); }
+  .wind .speed {
+    text-align: center;
+    font-weight: 800; }
 
 .weather {
   grid-area: weather;
