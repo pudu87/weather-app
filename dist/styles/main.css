@@ -61,7 +61,7 @@ body {
 
 .temp {
   grid-area: temp;
-  display: grid;
+  display: flex;
   justify-content: center;
   align-items: center;
   position: relative; }
