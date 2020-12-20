@@ -2,7 +2,7 @@ const search = document.querySelector('#location');
 const form = document.querySelector('form');
 const temp = document.querySelector('.temp span');
 const wind = document.querySelector('.wind span');
-const weather = document.querySelector('.weather span');
+const weather = document.querySelector('.weather img');
 const pressure = document.querySelector('.pressure span');
 const humidity = document.querySelector('.humidity span');
 const urlStart = 'http://api.openweathermap.org/data/2.5/weather?q=';
@@ -33,7 +33,7 @@ function processData(data) {
   const requiredData = { 
     temp: data.main.temp, 
     wind: data.wind.deg,
-    weather: data.weather[0].main,
+    icon: data.weather[0].icon,
     pressure: data.main.pressure, 
     humidity: data.main.humidity, 
     day
@@ -44,6 +44,7 @@ function processData(data) {
 function displayData(data) {
   const tempC = Math.round(data.temp - 273.15);
   temp.textContent = `${tempC} °C`;
+  weather.src = `http://openweathermap.org/img/wn/${data.icon}@2x.png`;
   pressure.textContent = `${data.pressure} hPa`;
   humidity.textContent = `${data.humidity} %`;
 }
