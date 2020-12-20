@@ -1,5 +1,6 @@
 const search = document.querySelector('#location');
 const form = document.querySelector('form');
+const city = document.querySelector('.city');
 const temp = document.querySelector('.temp span');
 const windDir = document.querySelector('.arrow');
 const windSpeed = document.querySelector('.speed')
@@ -30,7 +31,8 @@ async function fetchData(search) {
 
 function processData(data) {
   const day = data.sys.sunrise < data.dt && data.dt < data.sys.sunset;
-  const requiredData = { 
+  const requiredData = {
+    name: data.name, 
     temp: data.main.temp, 
     windDir: data.wind.deg,
     windSpeed: data.wind.speed,
@@ -43,10 +45,9 @@ function processData(data) {
 }
 
 function displayData(data) {
+  city.textContent = data.name;
   const tempC = Math.round(data.temp - 273.15);
   temp.textContent = `${tempC} °C`;
-  console.log(data.windDir)
-  console.log(windDir)
   windDir.style.rotate = `${data.windDir - 180}deg`;
   windSpeed.textContent = `${data.windSpeed} m/s`
   weather.src = `http://openweathermap.org/img/wn/${data.icon}@2x.png`;
