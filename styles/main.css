@@ -36,6 +36,16 @@ body {
     font-family: Catamaran, sans-serif;
     border: 1px solid #c8c8c8;
     background-color: #ebebeb; }
+  #form input[type="submit"]:hover {
+    cursor: pointer; }
+  #form input[type="submit"]:active {
+    background-color: #e6e6e6; }
+  #form p {
+    float: right;
+    font-weight: 800;
+    font-size: 20px;
+    text-decoration: underline;
+    color: #555; }
 
 #data {
   height: 75%;
@@ -47,7 +57,7 @@ body {
   #data > * {
     border: 1px solid #f0f0f0;
     border-radius: 5px;
-    background-color: #ebebeb; }
+    background-color: #fff; }
 
 .temp {
   grid-area: temp;
@@ -66,9 +76,13 @@ body {
     border: 1px solid #c8c8c8;
     border-radius: 4px;
     font-size: 12px;
-    color: #999; }
+    color: #999;
+    background-color: #ebebeb; }
   .temp i:hover {
     cursor: pointer; }
+  .temp i:active {
+    transform: scale(0.99);
+    background-color: #e6e6e6; }
 
 .wind {
   grid-area: wind; }
