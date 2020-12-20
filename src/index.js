@@ -1,7 +1,8 @@
 const search = document.querySelector('#location');
 const form = document.querySelector('form');
 const temp = document.querySelector('.temp span');
-const wind = document.querySelector('.wind span');
+const windDir = document.querySelector('.arrow');
+const windSpeed = document.querySelector('.speed')
 const weather = document.querySelector('.weather img');
 const pressure = document.querySelector('.pressure span');
 const humidity = document.querySelector('.humidity span');
@@ -22,7 +23,6 @@ async function fetchData(search) {
     displayData(data);
     console.log(dataSet);
     console.log(processData(dataSet));
-
   } catch(error) {
     console.log(error);
   }
@@ -32,7 +32,8 @@ function processData(data) {
   const day = data.sys.sunrise < data.dt && data.dt < data.sys.sunset;
   const requiredData = { 
     temp: data.main.temp, 
-    wind: data.wind.deg,
+    windDir: data.wind.deg,
+    windSpeed: data.wind.speed,
     icon: data.weather[0].icon,
     pressure: data.main.pressure, 
     humidity: data.main.humidity, 
@@ -44,6 +45,10 @@ function processData(data) {
 function displayData(data) {
   const tempC = Math.round(data.temp - 273.15);
   temp.textContent = `${tempC} °C`;
+  console.log(data.windDir)
+  console.log(windDir)
+  windDir.style.rotate = `${data.windDir - 180}deg`;
+  windSpeed.textContent = `${data.windSpeed} m/s`
   weather.src = `http://openweathermap.org/img/wn/${data.icon}@2x.png`;
   pressure.textContent = `${data.pressure} hPa`;
   humidity.textContent = `${data.humidity} %`;
