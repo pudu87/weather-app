@@ -11,7 +11,7 @@ const pressure = document.querySelector('.pressure span');
 const humidity = document.querySelector('.humidity span');
 const dataDisplay = document.querySelector('#data')
 const loadingDisplay = document.querySelector('#loading');
-const urlStart = 'http://api.openweathermap.org/data/2.5/weather?q=';
+const urlStart = 'https://api.openweathermap.org/data/2.5/weather?q=';
 const urlEnd = '&appid=30aa43e809e468d20a5ff0a5e98a95ab';
 
 const data = {};
@@ -59,7 +59,7 @@ function displayData() {
   switchTemp(data.temp);
   windDir.style.rotate = `${data.windDir - 180}deg`;
   windSpeed.textContent = `${data.windSpeed} m/s`
-  weather.src = `http://openweathermap.org/img/wn/${data.icon}@2x.png`;
+  weather.src = `https://openweathermap.org/img/wn/${data.icon}@2x.png`;
   pressure.textContent = `${data.pressure} hPa`;
   humidity.textContent = `${data.humidity} %`;
   toggleLoading();
