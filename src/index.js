@@ -9,6 +9,8 @@ const windSpeed = document.querySelector('.speed')
 const weather = document.querySelector('.weather img');
 const pressure = document.querySelector('.pressure span');
 const humidity = document.querySelector('.humidity span');
+const dataDisplay = document.querySelector('#data')
+const loadingDisplay = document.querySelector('#loading');
 const urlStart = 'http://api.openweathermap.org/data/2.5/weather?q=';
 const urlEnd = '&appid=30aa43e809e468d20a5ff0a5e98a95ab';
 
@@ -20,8 +22,16 @@ function displayLocation(e) {
   fetchData(location);
 }
 
+function toggleLoading() {
+  dataDisplay.classList.toggle('hidden');
+  loadingDisplay.classList.toggle('hidden');
+}
+
 async function fetchData(search) {
   try {
+    toggleLoading();
+    // Timeout is to show off the loading component...
+    await new Promise(resolve => setTimeout(resolve, 2000));
     const response = await fetch(urlStart + search + urlEnd, {mode: 'cors'});
     const dataSet = await response.json();
     const data = processData(dataSet);
@@ -52,6 +62,7 @@ function displayData() {
   weather.src = `http://openweathermap.org/img/wn/${data.icon}@2x.png`;
   pressure.textContent = `${data.pressure} hPa`;
   humidity.textContent = `${data.humidity} %`;
+  toggleLoading();
 }
 
 function switchTemp() {
