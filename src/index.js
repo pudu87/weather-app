@@ -68,7 +68,7 @@ function displayData() {
 function switchTemp() {
   if (tempUnit.textContent === '°C') {
     tempQuantity.textContent = Math.round((data.temp - 273.15) * 9 / 5 + 32);
-    tempUnit.textContent = '°K';
+    tempUnit.textContent = '°F';
   } else {
     tempQuantity.textContent = Math.round(data.temp - 273.15);
     tempUnit.textContent = '°C';
